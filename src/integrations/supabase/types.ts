@@ -14,13 +14,224 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      account_requests: {
+        Row: {
+          created_at: string
+          id: string
+          kind: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kind: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kind?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "account_requests_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ai_access_state: {
+        Row: {
+          blocked: boolean
+          id: string
+          message: string | null
+          status: number | null
+          updated_at: string
+        }
+        Insert: {
+          blocked?: boolean
+          id: string
+          message?: string | null
+          status?: number | null
+          updated_at?: string
+        }
+        Update: {
+          blocked?: boolean
+          id?: string
+          message?: string | null
+          status?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      ai_usage: {
+        Row: {
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_usage_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      audit_logs: {
+        Row: {
+          action: string
+          actor_id: string | null
+          created_at: string
+          entity: string
+          entity_id: string | null
+          id: number
+        }
+        Insert: {
+          action: string
+          actor_id?: string | null
+          created_at?: string
+          entity: string
+          entity_id?: string | null
+          id?: never
+        }
+        Update: {
+          action?: string
+          actor_id?: string | null
+          created_at?: string
+          entity?: string
+          entity_id?: string | null
+          id?: never
+        }
+        Relationships: []
+      }
+      content_entries: {
+        Row: {
+          body_en: string
+          body_fr: string
+          created_by: string
+          id: string
+          page: string
+          status: string
+          title_en: string
+          title_fr: string
+          updated_at: string
+        }
+        Insert: {
+          body_en?: string
+          body_fr?: string
+          created_by: string
+          id?: string
+          page: string
+          status?: string
+          title_en?: string
+          title_fr?: string
+          updated_at?: string
+        }
+        Update: {
+          body_en?: string
+          body_fr?: string
+          created_by?: string
+          id?: string
+          page?: string
+          status?: string
+          title_en?: string
+          title_fr?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_entries_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_path: string | null
+          created_at: string
+          full_name: string
+          id: string
+          preferred_language: string
+        }
+        Insert: {
+          avatar_path?: string | null
+          created_at?: string
+          full_name?: string
+          id: string
+          preferred_language?: string
+        }
+        Update: {
+          avatar_path?: string | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          preferred_language?: string
+        }
+        Relationships: []
+      }
+      role_permissions: {
+        Row: {
+          permission: string
+          role: string
+        }
+        Insert: {
+          permission: string
+          role: string
+        }
+        Update: {
+          permission?: string
+          role?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_permission: { Args: { _permission: string }; Returns: boolean }
+      has_role: { Args: { _role: string; _user_id: string }; Returns: boolean }
+      reserve_ai_request: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
