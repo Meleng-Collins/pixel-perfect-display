@@ -180,7 +180,7 @@ a { transition: color .2s; }
 .join-button { height: 40px; font-size: 11px; padding-inline: 15px; }
 .mobile-menu { display: none; }
 .home-hero { position: relative; min-height: 590px; overflow: hidden; background: var(--forest-deep); color: var(--hero-foreground); }
-.hero-photo { position: absolute; right: 0; top: 0; width: 68%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.hero-photo { position: absolute; right: 0; top: 0; width: 68%; height: 100%; object-fit: cover; object-position: 50% 12%; }
 .hero-shade { position: absolute; inset: 0; background: var(--hero-overlay); }
 .hero-inner { position: relative; padding-block: 82px 64px; }
 .hero-eyebrow { display: flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 650; letter-spacing: 1.9px; }
