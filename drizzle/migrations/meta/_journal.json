@@ -8,6 +8,13 @@
       "when": 1791674749136,
       "tag": "0000_accounts_cms_and_ai_security",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791677015342,
+      "tag": "0001_private_avatar_access",
+      "breakpoints": true
     }
   ]
 }

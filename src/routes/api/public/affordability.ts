@@ -1,0 +1,2 @@
+import { createFileRoute } from '@tanstack/react-router';
+export const Route=createFileRoute('/api/public/affordability')({server:{handlers:{POST:async({request})=>{const {handleAffordability}=await import('@/lib/ai/affordability.server');return handleAffordability(request);}}}});
