@@ -1,8 +1,10 @@
 import { createFileRoute, notFound } from '@tanstack/react-router';
 import { Website } from '@/components/site/website';
 import { labels, pages, type Language, type Page } from '@/components/site/content';
+import { publishedQuery } from '@/lib/portal.functions';
 
 export const Route = createFileRoute('/$lang/$page')({
+  loader:({context})=>context.queryClient.ensureQueryData(publishedQuery),
   beforeLoad: ({params}) => { if(!['en','fr'].includes(params.lang) || !pages.includes(params.page as Page)) throw notFound(); },
   head: ({params}) => {
     const title = `${labels[params.page as Page]?.[params.lang==='fr'?1:0] ?? 'NATINCCUL'} | NATINCCUL COOPBOD`;

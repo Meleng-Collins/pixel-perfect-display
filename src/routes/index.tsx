@@ -1,7 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Website } from '@/components/site/website';
+import { publishedQuery } from '@/lib/portal.functions';
 
 export const Route = createFileRoute('/')({
+  loader:({context})=>context.queryClient.ensureQueryData(publishedQuery),
   head: () => ({meta:[
     {title:'NATINCCUL COOPBOD | Build Today. Benefit Tomorrow.'},
     {name:'description',content:'Your community credit union in Douala, Cameroon. Explore savings, loans and the people behind NATINCCUL. Together, we grow stronger.'},

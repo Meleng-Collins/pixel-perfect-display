@@ -1,0 +1,9 @@
+import { createFileRoute,Link } from '@tanstack/react-router';
+import { useEffect,useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { supabase } from '@/integrations/supabase/client';
+import { useSession } from '@/components/portal/session';
+import { pageHead } from '@/lib/page-head';
+export const Route=createFileRoute('/reset-password')({head:()=>pageHead('Reset password','Set a new password for your NATINCCUL account.'),component:ResetPage});
+function ResetPage(){const {lang}=useSession();const fr=lang==='fr';const [recovery,setRecovery]=useState(false);const [password,setPassword]=useState('');const [message,setMessage]=useState('');const [busy,setBusy]=useState(false);useEffect(()=>{setRecovery(new URLSearchParams(window.location.hash.slice(1)).get('type')==='recovery');},[]);return <main className="auth-page"><div className="auth-body"><h1>{fr?'Nouveau mot de passe':'New password'}</h1>{recovery?<form className="portal-form" onSubmit={async e=>{e.preventDefault();setBusy(true);const {error}=await supabase.auth.updateUser({password});setMessage(error?error.message:(fr?'Mot de passe mis à jour.':'Password updated.'));setBusy(false);}}><label className="field">{fr?'Nouveau mot de passe':'New password'}<Input type="password" minLength={8} required autoComplete="new-password" value={password} onChange={e=>setPassword(e.target.value)}/></label><Button disabled={busy}>{fr?'Enregistrer':'Save password'}</Button></form>:<p className="mt-4">{fr?'Ouvrez le lien de réinitialisation reçu par e-mail.':'Open the password recovery link from your email.'}</p>}{message&&<p role="status">{message}</p>}<Button asChild variant="link"><Link to="/auth">{fr?'Se connecter':'Sign in'}</Link></Button></div></main>;}
