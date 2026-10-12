@@ -5,7 +5,7 @@ import { publishedQuery } from '@/lib/portal.functions';
 
 export const Route = createFileRoute('/$lang/$page')({
   loader:({context})=>context.queryClient.ensureQueryData(publishedQuery),
-  beforeLoad: ({params}) => { if(!['en','fr'].includes(params.lang) || !pages.includes(params.page as Page)) throw notFound(); },
+  beforeLoad: ({params}) => { if(!['en','fr'].includes(params.lang) || !pages.includes(params.page as Page)) throw notFound(); return {}; },
   head: ({params}) => {
     const title = `${labels[params.page as Page]?.[params.lang==='fr'?1:0] ?? 'NATINCCUL'} | NATINCCUL COOPBOD`;
     const description = params.lang==='fr'?'NATINCCUL à Douala : épargne, prêts et services financiers de proximité. Ensemble, nous sommes plus forts.':'NATINCCUL in Douala: community savings, loans and financial services. Together, we grow stronger.';
