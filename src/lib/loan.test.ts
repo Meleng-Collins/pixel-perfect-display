@@ -15,6 +15,10 @@ describe('monthly loan estimates', () => {
   it('adds fees to total payable without treating fees as principal', () => {
     expect(calculateLoan(120000, 0, 12, 5000)?.payable).toBe(125000);
   });
+  it('does not show negative zero interest for repeating zero-rate payments',()=>{
+    expect(calculateLoan(500000,0,12)?.interest).toBe(0);
+    expect(calculateLoan(500000,0,18)?.total).toBe(500000);
+  });
   it('rejects invalid durations and negative interest rates', () => {
     expect(calculateLoan(100000, 12, 0)).toBeNull();
     expect(calculateLoan(100000, -1, 12)).toBeNull();

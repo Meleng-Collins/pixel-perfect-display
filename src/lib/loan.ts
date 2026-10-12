@@ -13,6 +13,6 @@ export function calculateLoan(principal: number, annualRate: number, months: num
     balance = balance.minus(capital);
     return { month: i + 1, payment: capital.plus(interest).toNumber(), principal: capital.toNumber(), interest: interest.toNumber(), balance: balance.toNumber() };
   });
-  const total = rows.reduce((sum, row) => sum.plus(row.payment), new Decimal(0));
+  const total = rate.isZero() ? p : rows.reduce((sum, row) => sum.plus(row.payment), new Decimal(0));
   return { payment: payment.toNumber(), interest: total.minus(p).toNumber(), total: total.toNumber(), payable: total.plus(fees).toNumber(), rows };
 }
