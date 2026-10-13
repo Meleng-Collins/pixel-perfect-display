@@ -167,6 +167,104 @@ export type Database = {
           },
         ]
       }
+      lending_policy: {
+        Row: {
+          id: boolean
+          require_guarantor: boolean
+          require_income: boolean
+          updated_at: string
+        }
+        Insert: {
+          id?: boolean
+          require_guarantor?: boolean
+          require_income?: boolean
+          updated_at?: string
+        }
+        Update: {
+          id?: boolean
+          require_guarantor?: boolean
+          require_income?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      loan_applications: {
+        Row: {
+          address: string
+          amount: number
+          created_at: string
+          email: string
+          employer: string
+          guarantor_name: string
+          guarantor_phone: string
+          guarantor_relationship: string
+          id: string
+          membership_number: string
+          monthly_income: number | null
+          occupation: string
+          phone: string
+          purpose: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          reviewer_note: string
+          status: string
+          term_months: number
+          user_id: string
+        }
+        Insert: {
+          address?: string
+          amount: number
+          created_at?: string
+          email: string
+          employer?: string
+          guarantor_name?: string
+          guarantor_phone?: string
+          guarantor_relationship?: string
+          id?: string
+          membership_number: string
+          monthly_income?: number | null
+          occupation?: string
+          phone: string
+          purpose: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          reviewer_note?: string
+          status?: string
+          term_months: number
+          user_id: string
+        }
+        Update: {
+          address?: string
+          amount?: number
+          created_at?: string
+          email?: string
+          employer?: string
+          guarantor_name?: string
+          guarantor_phone?: string
+          guarantor_relationship?: string
+          id?: string
+          membership_number?: string
+          monthly_income?: number | null
+          occupation?: string
+          phone?: string
+          purpose?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          reviewer_note?: string
+          status?: string
+          term_months?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "loan_applications_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_path: string | null

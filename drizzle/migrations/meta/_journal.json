@@ -22,6 +22,13 @@
       "when": 1791788397469,
       "tag": "0002_restrict_definer_function_grants",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791853183401,
+      "tag": "0003_loan_applications",
+      "breakpoints": true
     }
   ]
 }

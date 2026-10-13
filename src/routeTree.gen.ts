@@ -16,7 +16,9 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as LangPageRouteImport } from './routes/$lang.$page'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedApplyRouteImport } from './routes/_authenticated/apply'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedLoanReviewRouteImport } from './routes/_authenticated/loan-review'
 import { Route as ApiPublicAffordabilityRouteImport } from './routes/api/public/affordability'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,9 +55,19 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedApplyRoute = AuthenticatedApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedLoanReviewRoute = AuthenticatedLoanReviewRouteImport.update({
+  id: '/loan-review',
+  path: '/loan-review',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const ApiPublicAffordabilityRoute = ApiPublicAffordabilityRouteImport.update({
@@ -71,7 +83,9 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/$lang/$page': typeof LangPageRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/apply': typeof AuthenticatedApplyRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/loan-review': typeof AuthenticatedLoanReviewRoute
   '/api/public/affordability': typeof ApiPublicAffordabilityRoute
 }
 export interface FileRoutesByTo {
@@ -81,7 +95,9 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/$lang/$page': typeof LangPageRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/apply': typeof AuthenticatedApplyRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/loan-review': typeof AuthenticatedLoanReviewRoute
   '/api/public/affordability': typeof ApiPublicAffordabilityRoute
 }
 export interface FileRoutesById {
@@ -93,7 +109,9 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/$lang/$page': typeof LangPageRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/apply': typeof AuthenticatedApplyRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/loan-review': typeof AuthenticatedLoanReviewRoute
   '/api/public/affordability': typeof ApiPublicAffordabilityRoute
 }
 export interface FileRouteTypes {
@@ -105,7 +123,9 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/$lang/$page'
     | '/admin'
+    | '/apply'
     | '/dashboard'
+    | '/loan-review'
     | '/api/public/affordability'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -115,7 +135,9 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/$lang/$page'
     | '/admin'
+    | '/apply'
     | '/dashboard'
+    | '/loan-review'
     | '/api/public/affordability'
   id:
     | '__root__'
@@ -126,7 +148,9 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/$lang/$page'
     | '/_authenticated/admin'
+    | '/_authenticated/apply'
     | '/_authenticated/dashboard'
+    | '/_authenticated/loan-review'
     | '/api/public/affordability'
   fileRoutesById: FileRoutesById
 }
@@ -191,11 +215,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/apply': {
+      id: '/_authenticated/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof AuthenticatedApplyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/loan-review': {
+      id: '/_authenticated/loan-review'
+      path: '/loan-review'
+      fullPath: '/loan-review'
+      preLoaderRoute: typeof AuthenticatedLoanReviewRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/api/public/affordability': {
@@ -210,12 +248,16 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedApplyRoute: typeof AuthenticatedApplyRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedLoanReviewRoute: typeof AuthenticatedLoanReviewRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedApplyRoute: AuthenticatedApplyRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedLoanReviewRoute: AuthenticatedLoanReviewRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
