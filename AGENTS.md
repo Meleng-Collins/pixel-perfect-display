@@ -19,3 +19,4 @@
 - CMS entries have paired language fields and draft/published visibility; public loaders read only published entries through an anonymous publishable client.
 - Calculate affordability scenarios with Decimal before sending minimal numeric assumptions to a signed-in, rate-limited streaming AI route; the model explains figures and never makes lending decisions.
 - Persist AI access denials in the database and stop blocked calls; only authorized recovery after restored service may clear the block.
+- Loan applications are submitted by members and reviewed by reviewers holding the loans.review permission; a database trigger enforces the lending policy so the rule holds even outside the app.

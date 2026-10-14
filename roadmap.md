@@ -11,3 +11,5 @@
 - [x] Verify rules, database access, authentication guards and live AI responses.
 - [ ] Assign the first real administrator — waiting for the user to register and identify the intended account.
 - Applications, identity-document collection and payments remain outside this request.
+- [x] Assign first administrator (melengcollins@gmail.com)
+- [x] Member loan application + staff review with lending policy
