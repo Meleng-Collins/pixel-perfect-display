@@ -390,3 +390,22 @@ td:first-child,th:first-child { text-align: left; }
 .published-note p { white-space:pre-wrap; font-size:14px; color:var(--muted-foreground); overflow-wrap:anywhere; }
 @media(max-width:1000px) { .portal-main { padding:30px; }.portal-layout { grid-template-columns:190px minmax(0,1fr); }.cms-layout { grid-template-columns:1fr; }.translation-columns { gap:15px; }.header-actions { gap:8px; } }
 @media(max-width:760px) { .portal-header { min-height:80px; padding:15px 18px; }.portal-header>a:last-child { font-size:11px; }.portal-layout { grid-template-columns:1fr; }.portal-sidebar { border-right:0; border-bottom:1px solid var(--border); padding:14px; flex-direction:row; flex-wrap:wrap; gap:5px; }.portal-sidebar>.eyebrow,.portal-sidebar-note { display:none; }.portal-sidebar>a,.portal-sidebar>button { font-size:11px; padding:8px; }.portal-main { padding:30px 18px; }.portal-columns,.translation-columns { grid-template-columns:1fr; gap:35px; }.portal-main h1,.affordability-main h1 { font-size:30px; }.auth-page { padding:28px 18px; }.auth-body { padding:24px; }.scenario-item>strong { font-size:23px; }.header-actions>.account-button { width:33px; padding:5px; }.account-button>span { display:none; } }
+
+.hero-note { display:block; opacity:1; }
+.official-slogan { display:flex; align-items:center; gap:10px; font-family:'Manrope',sans-serif; font-size:23px; line-height:1.4; font-weight:800; letter-spacing:0; }
+.secondary-slogan { display:block; font-size:13px; line-height:1.7; margin-top:9px; }
+.hero-note .official-slogan { color:var(--gold); }
+.hero-note .secondary-slogan { color:var(--hero-foreground); }
+.join-band .official-slogan { font-size:30px; }
+.join-band .secondary-slogan { font-size:14px; }
+.president-section { padding-block:64px; background:var(--background); }
+.president-layout { display:grid; grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr); gap:75px; align-items:center; }
+.president-layout figure { margin:0; }
+.president-layout img { width:100%; height:510px; object-fit:cover; object-position:center 55%; border-radius:5px; }
+.president-layout figcaption { font-size:12px; font-weight:600; margin-top:15px; color:var(--primary); }
+.president-layout h2 { max-width:550px; }
+.president-layout p { color:var(--muted-foreground); margin-block:20px; font-size:14px; }
+.president-layout .official-slogan { color:var(--primary); margin-top:30px; }
+.president-layout .secondary-slogan { margin-top:8px; font-size:13px; }
+.document-name { display:block; overflow-wrap:anywhere; }
+@media(max-width:760px) { .official-slogan { font-size:18px; } .hero-note .secondary-slogan { font-size:11px; } .join-band .official-slogan { font-size:24px; } .president-section { padding-block:40px; } .president-layout { grid-template-columns:1fr; gap:30px; } .president-layout img { height:470px; object-fit:contain; background:var(--secondary); } }

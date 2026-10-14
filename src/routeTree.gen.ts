@@ -19,6 +19,7 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedApplyRouteImport } from './routes/_authenticated/apply'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedLoanReviewRouteImport } from './routes/_authenticated/loan-review'
+import { Route as AuthenticatedMembershipRouteImport } from './routes/_authenticated/membership'
 import { Route as ApiPublicAffordabilityRouteImport } from './routes/api/public/affordability'
 
 const IndexRoute = IndexRouteImport.update({
@@ -70,6 +71,11 @@ const AuthenticatedLoanReviewRoute = AuthenticatedLoanReviewRouteImport.update({
   path: '/loan-review',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedMembershipRoute = AuthenticatedMembershipRouteImport.update({
+  id: '/membership',
+  path: '/membership',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const ApiPublicAffordabilityRoute = ApiPublicAffordabilityRouteImport.update({
   id: '/api/public/affordability',
   path: '/api/public/affordability',
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/apply': typeof AuthenticatedApplyRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/loan-review': typeof AuthenticatedLoanReviewRoute
+  '/membership': typeof AuthenticatedMembershipRoute
   '/api/public/affordability': typeof ApiPublicAffordabilityRoute
 }
 export interface FileRoutesByTo {
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/apply': typeof AuthenticatedApplyRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/loan-review': typeof AuthenticatedLoanReviewRoute
+  '/membership': typeof AuthenticatedMembershipRoute
   '/api/public/affordability': typeof ApiPublicAffordabilityRoute
 }
 export interface FileRoutesById {
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/_authenticated/apply': typeof AuthenticatedApplyRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/loan-review': typeof AuthenticatedLoanReviewRoute
+  '/_authenticated/membership': typeof AuthenticatedMembershipRoute
   '/api/public/affordability': typeof ApiPublicAffordabilityRoute
 }
 export interface FileRouteTypes {
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/dashboard'
     | '/loan-review'
+    | '/membership'
     | '/api/public/affordability'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/dashboard'
     | '/loan-review'
+    | '/membership'
     | '/api/public/affordability'
   id:
     | '__root__'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/_authenticated/apply'
     | '/_authenticated/dashboard'
     | '/_authenticated/loan-review'
+    | '/_authenticated/membership'
     | '/api/public/affordability'
   fileRoutesById: FileRoutesById
 }
@@ -236,6 +248,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedLoanReviewRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/membership': {
+      id: '/_authenticated/membership'
+      path: '/membership'
+      fullPath: '/membership'
+      preLoaderRoute: typeof AuthenticatedMembershipRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/affordability': {
       id: '/api/public/affordability'
       path: '/api/public/affordability'
@@ -251,6 +270,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedApplyRoute: typeof AuthenticatedApplyRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedLoanReviewRoute: typeof AuthenticatedLoanReviewRoute
+  AuthenticatedMembershipRoute: typeof AuthenticatedMembershipRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -258,6 +278,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedApplyRoute: AuthenticatedApplyRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedLoanReviewRoute: AuthenticatedLoanReviewRoute,
+  AuthenticatedMembershipRoute: AuthenticatedMembershipRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

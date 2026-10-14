@@ -29,6 +29,13 @@
       "when": 1791853183401,
       "tag": "0003_loan_applications",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791939604784,
+      "tag": "0004_private_membership_documents",
+      "breakpoints": true
     }
   ]
 }

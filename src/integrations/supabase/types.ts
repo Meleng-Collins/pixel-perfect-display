@@ -265,6 +265,82 @@ export type Database = {
           },
         ]
       }
+      member_documents: {
+        Row: {
+          category: string
+          created_at: string
+          file_name: string
+          id: string
+          mime_type: string
+          object_path: string
+          size_bytes: number
+          user_id: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          file_name: string
+          id?: string
+          mime_type: string
+          object_path: string
+          size_bytes: number
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          file_name?: string
+          id?: string
+          mime_type?: string
+          object_path?: string
+          size_bytes?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "member_documents_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      membership_requests: {
+        Row: {
+          address: string
+          created_at: string
+          membership_number: string
+          phone: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          membership_number?: string
+          phone: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          membership_number?: string
+          phone?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "membership_requests_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_path: string | null

@@ -20,3 +20,5 @@
 - Calculate affordability scenarios with Decimal before sending minimal numeric assumptions to a signed-in, rate-limited streaming AI route; the model explains figures and never makes lending decisions.
 - Persist AI access denials in the database and stop blocked calls; only authorized recovery after restored service may clear the block.
 - Loan applications are submitted by members and reviewed by reviewers holding the loans.review permission; a database trigger enforces the lending policy so the rule holds even outside the app.
+
+- Store membership details and document metadata separately from profiles; private owner-prefixed storage and authenticated server functions enforce ownership, verified upload metadata, and administrator-only staff reads.

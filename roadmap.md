@@ -9,7 +9,9 @@
 - [x] Add protected bilingual CMS with draft/published content and public rendering.
 - [x] Add decimal repayment comparisons and streaming AI affordability guidance.
 - [x] Verify rules, database access, authentication guards and live AI responses.
-- [ ] Assign the first real administrator — waiting for the user to register and identify the intended account.
-- Applications, identity-document collection and payments remain outside this request.
 - [x] Assign first administrator (melengcollins@gmail.com)
 - [x] Member loan application + staff review with lending policy
+## President, slogan and membership
+- [ ] Prioritize official slogan and president portrait; place uploaded community photos.
+- [ ] Add private membership portal and member document uploads.
+- [ ] Verify signed-in document upload, read-back and private access.
