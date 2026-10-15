@@ -1,4 +1,6 @@
 import president from "@/assets/president-office.jpg";
+import boardBlue from '@/assets/board-member-blue.jpg.asset.json';
+import boardBlack from '@/assets/board-member-black.jpg.asset.json';
 import gathering from '@/assets/IMG-20261010-WA0061.jpg.asset.json';
 import celebration from '@/assets/IMG-20261010-WA0062.jpg.asset.json';
 import members from '@/assets/IMG-20261010-WA0064.jpg.asset.json';
