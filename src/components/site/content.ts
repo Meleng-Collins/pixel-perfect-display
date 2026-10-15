@@ -22,7 +22,7 @@ import walk from '@/assets/IMG-20261010-WA0087.jpg.asset.json';
 import brochure from '@/assets/IMG-20261010-WA0092.jpg.asset.json';
 
 export type Language = 'en' | 'fr';
-export const assets = { logo, savings, referral, team, member, market, outreach, staff, walk, brochure, president, gathering, celebration, members, council, meeting, office, mobileMoney, serviceTeam, visits };
+export const assets = { logo, savings, referral, team, member, market, outreach, staff, walk, brochure, president, boardBlue, boardBlack, gathering, celebration, members, council, meeting, office, mobileMoney, serviceTeam, visits };
 export const pages = ['home', 'about', 'services', 'savings', 'loans', 'activities', 'news', 'membership', 'contact', 'legal'] as const;
 export type Page = typeof pages[number];
 export const labels: Record<Page, [string, string]> = {
