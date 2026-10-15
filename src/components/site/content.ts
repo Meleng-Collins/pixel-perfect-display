@@ -1,4 +1,6 @@
 import president from "@/assets/president-office.jpg";
+import boardBlue from '@/assets/board-member-blue.jpg.asset.json';
+import boardBlack from '@/assets/board-member-black.jpg.asset.json';
 import gathering from '@/assets/IMG-20261010-WA0061.jpg.asset.json';
 import celebration from '@/assets/IMG-20261010-WA0062.jpg.asset.json';
 import members from '@/assets/IMG-20261010-WA0064.jpg.asset.json';
@@ -20,7 +22,7 @@ import walk from '@/assets/IMG-20261010-WA0087.jpg.asset.json';
 import brochure from '@/assets/IMG-20261010-WA0092.jpg.asset.json';
 
 export type Language = 'en' | 'fr';
-export const assets = { logo, savings, referral, team, member, market, outreach, staff, walk, brochure, president, gathering, celebration, members, council, meeting, office, mobileMoney, serviceTeam, visits };
+export const assets = { logo, savings, referral, team, member, market, outreach, staff, walk, brochure, president, boardBlue, boardBlack, gathering, celebration, members, council, meeting, office, mobileMoney, serviceTeam, visits };
 export const pages = ['home', 'about', 'services', 'savings', 'loans', 'activities', 'news', 'membership', 'contact', 'legal'] as const;
 export type Page = typeof pages[number];
 export const labels: Record<Page, [string, string]> = {
