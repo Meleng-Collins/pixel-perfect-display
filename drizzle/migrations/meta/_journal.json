@@ -36,6 +36,13 @@
       "when": 1791939604784,
       "tag": "0004_private_membership_documents",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792023659829,
+      "tag": "0005_member_upload_initial_metadata",
+      "breakpoints": true
     }
   ]
 }

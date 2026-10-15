@@ -1,0 +1,2 @@
+ALTER POLICY member_files_insert ON storage.objects WITH CHECK (bucket_id='member-documents' AND (storage.foldername(name))[1]=auth.uid()::text AND lower(storage.extension(name)) IN ('pdf','jpeg','png','webp'));
+COMMENT ON POLICY member_files_insert ON storage.objects IS 'Ownership and extension checked on initial insert; private bucket enforces 5 MB limit and authenticated registration verifies actual size and MIME metadata after upload.';
