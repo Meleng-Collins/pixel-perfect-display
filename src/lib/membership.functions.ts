@@ -24,12 +24,7 @@ export const registerDocument = createServerFn({method:'POST'}).middleware([requ
 export const openDocument = createServerFn({method:'POST'}).middleware([requireSupabaseAuth]).inputValidator(z.string().uuid()).handler(async ({data,context}) => {
  const {data:doc,error} = await context.supabase.from('member_documents').select('object_path').eq('id',data).single();
  if(error || !doc) throw new Error('Document unavailable');
- const result = await context.supabase.storage.from('member-documents').createSignedUrl(doc.object_path,60);
- if(result.error || !result.data) throw new Error('Document unavailable');
- const browserBase = import.meta.env.VITE_SUPABASE_URL;
- const url = new URL(result.data.signedUrl); const base = new URL(browserBase);
- url.protocol=base.protocol; url.host=base.host;
- return {url:url.toString()};
+ return {object_path:doc.object_path};
 });
 export const deleteDocument = createServerFn({method:'POST'}).middleware([requireSupabaseAuth]).inputValidator(z.string().uuid()).handler(async ({data,context}) => {
  const {data:doc} = await context.supabase.from('member_documents').select('object_path').eq('id',data).eq('user_id',context.userId).single();
