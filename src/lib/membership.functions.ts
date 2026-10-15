@@ -26,7 +26,7 @@ export const openDocument = createServerFn({method:'POST'}).middleware([requireS
  if(error || !doc) throw new Error('Document unavailable');
  const result = await context.supabase.storage.from('member-documents').createSignedUrl(doc.object_path,60);
  if(result.error || !result.data) throw new Error('Document unavailable');
- const browserBase = import.meta.env.VITE_SUPABASE_URL;
+ const browserBase = import.meta.env['VITE_SUPABASE_URL'];
  const url = new URL(result.data.signedUrl); const base = new URL(browserBase);
  url.protocol=base.protocol; url.host=base.host;
  return {url:url.toString()};
