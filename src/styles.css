@@ -401,7 +401,7 @@ td:first-child,th:first-child { text-align: left; }
 .president-section { padding-block:64px; background:var(--background); }
 .president-layout { display:grid; grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr); gap:75px; align-items:center; }
 .president-layout figure { margin:0; }
-.president-layout img { display:block; width:100%; height:570px; object-fit:contain; object-position:center top; background:var(--secondary); border-radius:5px; }
+.president-layout img { display:block; width:100%; height:570px; object-fit:cover; object-position:center; background:var(--secondary); border-radius:5px; }
 .president-layout figcaption { font-size:12px; font-weight:600; margin-top:15px; color:var(--primary); }
 .president-layout h2 { max-width:550px; }
 .president-layout p { color:var(--muted-foreground); margin-block:20px; font-size:14px; }
@@ -412,6 +412,5 @@ td:first-child,th:first-child { text-align: left; }
 .board-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; max-width:640px; }
 .board-grid figure { margin:0; }
 .board-grid img { display:block; width:100%; height:400px; object-fit:cover; object-position:center top; background:var(--secondary); border-radius:5px; }
-.board-grid figcaption { font-size:12px; font-weight:600; margin-top:12px; color:var(--primary); }
 .document-name { display:block; overflow-wrap:anywhere; }
-@media(max-width:760px) { .official-slogan { font-size:18px; } .hero-note .secondary-slogan { font-size:11px; } .join-band .official-slogan { font-size:24px; } .president-section { padding-block:40px; } .president-layout { grid-template-columns:1fr; gap:30px; } .president-layout img { height:auto; max-height:520px; object-fit:contain; object-position:center top; background:var(--secondary); } .board-grid { grid-template-columns:1fr; max-width:none; } .board-grid img { height:auto; max-height:460px; object-fit:contain; object-position:center top; } }
+@media(max-width:760px) { .official-slogan { font-size:18px; } .hero-note .secondary-slogan { font-size:11px; } .join-band .official-slogan { font-size:24px; } .president-section { padding-block:40px; } .president-layout { grid-template-columns:1fr; gap:30px; } .president-layout img { height:420px; object-fit:cover; object-position:center; background:var(--secondary); } .board-grid { grid-template-columns:1fr; max-width:none; } .board-grid img { height:auto; max-height:460px; object-fit:contain; object-position:center top; } }
